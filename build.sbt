@@ -19,5 +19,7 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-jawn" % circeVersion,
   "io.circe" %% "circe-generic" % circeVersion,
-  "io.circe" %% "circe-jackson" % circeVersion
+  "io.circe" %% "circe-jackson" % circeVersion,
+  "com.atilika.kuromoji" % "kuromoji-ipadic" % "0.9.0",
+  "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 )
