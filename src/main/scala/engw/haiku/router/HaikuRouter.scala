@@ -1,16 +1,14 @@
-package engw.haiku.valid
+package engw.haiku.router
 
 import engw.haiku.service.{MixInHaikuService, UsesHaikuService}
 import io.finch._
-import io.finch.circe._
-import io.circe.generic.auto._
 
 trait HaikuRouter extends UsesHaikuService {
 
   import HaikuRouter._
 
   val haikuRoute = post(`haiku` :: HaikuParam.endpoint) { (param: HaikuParam) =>
-    val result = haikuService.valid(param.verse)
+    val result = haikuService.isHaiku(param.verse)
     Ok(ResponseBody(result))
   }
 
@@ -21,6 +19,8 @@ trait HaikuRouter extends UsesHaikuService {
 object HaikuRouter {
   val `haiku`: Endpoint0 = "v1" / "haiku"
 
+  import io.finch.circe._
+  import io.circe.generic.auto._
   case class HaikuParam(verse: String)
   object HaikuParam {
     val endpoint: Endpoint[HaikuParam] = body.as[HaikuParam]

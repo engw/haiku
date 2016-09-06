@@ -1,10 +1,10 @@
 package engw.haiku
 
-import engw.haiku.valid.MixInHaikuRouter
 import com.twitter.app.Flag
 import com.twitter.finagle.Http
 import com.twitter.server.TwitterServer
 import com.twitter.util.Await
+import engw.haiku.router.MixInHaikuRouter
 import io.circe.generic.auto._
 import io.finch._
 import io.finch.circe._
@@ -28,7 +28,6 @@ import io.finch.circe._
   *   "haiku": false
   * }
   */
-
 
 object Main extends TwitterServer with MixInHaikuRouter {
 
