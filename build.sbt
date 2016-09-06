@@ -10,13 +10,13 @@ lazy val finagleVersion = "6.37.0"
 lazy val finchVersion = "0.11.0-M3"
 lazy val circeVersion = "0.5.0-M3"
 
-resolvers += "Twitter's Repository" at "http://maven.twttr.com/"
+resolvers += "Twitter's Repository" at "https://maven.twttr.com/"
 
 libraryDependencies ++= Seq(
-  "com.twitter" %% "finagle-http" % finagleVersion,
-  "com.github.finagle" %% "finch-core" % finchVersion,
-  "com.github.finagle" %% "finch-circe" % finchVersion,
-  "com.twitter" %% "twitter-server" % "1.22.0",
+  "com.twitter" %% "finagle-http" % finagleVersion exclude("org.apache.thrift", "libthrift"),
+  "com.github.finagle" %% "finch-core" % finchVersion exclude("org.apache.thrift", "libthrift"),
+  "com.github.finagle" %% "finch-circe" % finchVersion exclude("org.apache.thrift", "libthrift"),
+  "com.twitter" %% "twitter-server" % "1.22.0" exclude("org.apache.thrift", "libthrift"),
   "org.scala-lang" % "scala-reflect" % scalaVersion.value,
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-jawn" % circeVersion,
