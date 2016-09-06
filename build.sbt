@@ -6,7 +6,7 @@ version := "1.0"
 
 scalaVersion := "2.11.8"
 
-lazy val finagleVersion = "6.35.0"
+lazy val finagleVersion = "6.37.0"
 lazy val finchVersion = "0.11.0-M3"
 lazy val circeVersion = "0.5.0-M3"
 
